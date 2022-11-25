@@ -5,9 +5,9 @@ from django.conf import settings
 from orders.models import Order
 from .tasks import payment_completed
 
-
 # instantiate Braintree payment gateway
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
+
 
 def payment_process(request):
     order_id = request.session.get('order_id')
@@ -37,12 +37,14 @@ def payment_process(request):
         else:
             return redirect('payment:cancelled')
     else:
-            # generate token
-            client_token = gateway.client_token.generate()
-            return render(request, 'payment/process.html', {'client_token': client_token})
+        # generate token
+        client_token = gateway.client_token.generate()
+        return render(request, 'payment/process.html', {'client_token': client_token})
+
 
 def payment_done(request):
     return render(request, 'payment/done.html')
+
 
 def payment_cancelled(request):
     return render(request, 'payment/cancelled.html')
