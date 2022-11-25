@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-
+import braintree
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -152,3 +152,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 BRAINTREE_MERCHANT_ID = 'w283g5t3k5443m7n'     # MERCHANT ID
 BRAINTREE_PUBLIC_KEY = '2xfwyrv92tkp7jqr'       # PUBLIC KEY
 BRAINTREE_PRIVATE_KEY = '1e307df5cf81c03519246e84d9f6e42a'   # PRIVATE KEY
+
+BRAINTREE_CONF = braintree.Configuration(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
