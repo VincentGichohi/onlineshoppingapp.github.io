@@ -20,11 +20,11 @@ msgstr ""
 
 #: Online_Shop/settings.py:122
 msgid "English"
-msgstr "Ingles"
+msgstr "Inglés"
 
 #: Online_Shop/settings.py:123
 msgid "Spanish"
-msgstr "Espaol"
+msgstr "Español"
 
 #: venv/lib/python3.10/site-packages/click/_termui_impl.py:496
 #, python-brace-format
